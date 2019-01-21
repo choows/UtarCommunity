@@ -1,0 +1,30 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
+    <Label class="action-bar-title" text="User Profile"></Label>
+    <ActionItem (tap)="onEdit()" ios.systemIcon="2" ios.position="right" text="Edit" android.position="popup"></ActionItem>
+</ActionBar>
+
+<StackLayout>
+    <Image [src]="profile_image" height="30%"></Image>
+    <FlexboxLayout flexDirection="row">
+        <label text="User Name :"></label>
+        <label [text]="User_Name"></label>
+    </FlexboxLayout>
+    <FlexboxLayout flexDirection="row">
+        <label text="Email : "></label>
+        <label [text]="Email"></label>
+    </FlexboxLayout>
+    <FlexboxLayout flexDirection="row">
+        <label text="Position : "></label>
+        <label [text]="Position"></label>
+    </FlexboxLayout>
+    <FlexboxLayout flexDirection="row">
+        <label text="Phone Number : "></label>
+        <label [text]="Phone_Number"></label>
+    </FlexboxLayout>
+    <FlexboxLayout>
+        <label text="About : "></label>
+        <label [text]="About"></label>
+    </FlexboxLayout>
+</StackLayout>

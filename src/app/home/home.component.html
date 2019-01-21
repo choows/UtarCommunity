@@ -1,0 +1,120 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
+    <ActionItem (tap)="addTable()" android.position="right" ios.position="right" android.systemIcon="ic_input_add"
+        ios.systemIcon="4"></ActionItem>
+    <Label class="action-bar-title" text="Home"></Label>
+</ActionBar>
+<ScrollLayout class="content" (loaded)="onpageloaded()">
+    <StackLayout class="stack">
+        <label text="Time Table" class="middle_title"></label>
+        <label *ngIf="this.is_mon" text="Monday" class="header"></label>
+        <RadListView #radlistview *ngIf="this.is_mon" [items]="Monday" class="list-view" selectionBehavior="Press , LongPress" (itemSelected)="onItemSelected($event)" multipleSelection="false">
+            <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal" itemInsertAnimation="Default"
+                itemDeleteAnimation="Default"></ListViewLinearLayout>
+            <ng-template tkListItemTemplate let-item="item">
+                <StackLayout orientation="vertical" class="list-view-item" (longPress)="onLongPress($event)" (tap)="onItemSelected($event)">
+                    <Label class="timeLabel" [text]="item.Start_Time"></Label>
+                    <Label class="nameLabel" [text]="item.Course_ID"></Label>
+                    <Label class="descriptionLabel" [text]="item.Course_Name"></Label>
+                    <Label class="roomLabel" [text]="item.Room"></Label>
+                </StackLayout>
+            </ng-template>
+        </RadListView>
+        <label *ngIf="this.is_tues" text="Tuesday" class="header"></label>
+        <RadListView *ngIf="this.is_tues" #radlistview [items]="Tuesday" class="list-view" selectionBehavior="Press , LongPress" (itemSelected)="onItemSelected($event)" multipleSelection="false">
+            <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal" itemInsertAnimation="Default"
+                itemDeleteAnimation="Default"></ListViewLinearLayout>
+            <ng-template tkListItemTemplate let-item="item">
+                <StackLayout orientation="vertical" class="list-view-item" (longPress)="onLongPress($event)" (tap)="onItemSelected($event)">
+                    <Label class="timeLabel" [text]="item.Start_Time"></Label>
+                    <Label class="nameLabel" [text]="item.Course_ID"></Label>
+                    <Label class="descriptionLabel" [text]="item.Course_Name"></Label>
+                    <Label class="roomLabel" [text]="item.Room"></Label>
+                </StackLayout>
+            </ng-template>
+        </RadListView>
+        <label *ngIf="this.is_wed" text="Wednesday" class="header"></label>
+        <RadListView *ngIf="this.is_wed" #radlistview [items]="Wednesday" class="list-view" selectionBehavior="Press , LongPress" (itemSelected)="onItemSelected($event)" multipleSelection="false">
+            <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal" itemInsertAnimation="Default"
+                itemDeleteAnimation="Default"></ListViewLinearLayout>
+            <ng-template tkListItemTemplate let-item="item">
+                <StackLayout orientation="vertical" class="list-view-item" (longPress)="onLongPress($event)" (tap)="onItemSelected($event)">
+                    <Label class="timeLabel" [text]="item.Start_Time"></Label>
+                    <Label class="nameLabel" [text]="item.Course_ID"></Label>
+                    <Label class="descriptionLabel" [text]="item.Course_Name"></Label>
+                    <Label class="roomLabel" [text]="item.Room"></Label>
+                </StackLayout>
+            </ng-template>
+        </RadListView>
+        <label *ngIf="this.is_thurs" text="Thursday" class="header"></label>
+        <RadListView *ngIf="this.is_thurs" #radlistview [items]="Thursday" class="list-view" selectionBehavior="Press , LongPress" (itemSelected)="onItemSelected($event)" multipleSelection="false">
+            <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal" itemInsertAnimation="Default"
+                itemDeleteAnimation="Default"></ListViewLinearLayout>
+            <ng-template tkListItemTemplate let-item="item">
+                <StackLayout orientation="vertical" class="list-view-item" (longPress)="onLongPress($event)" (tap)="onItemSelected($event)">
+                    <Label class="timeLabel" [text]="item.Start_Time"></Label>
+                    <Label class="nameLabel" [text]="item.Course_ID"></Label>
+                    <Label class="descriptionLabel" [text]="item.Course_Name"></Label>
+                    <Label class="roomLabel" [text]="item.Room"></Label>
+                </StackLayout>
+            </ng-template>
+        </RadListView>
+        <label *ngIf="this.is_fri" text="Friday" class="header"></label>
+        <RadListView *ngIf="this.is_fri" #radlistview [items]="Friday" class="list-view" selectionBehavior="Press , LongPress" (itemSelected)="onItemSelected($event)" multipleSelection="false">
+            <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal" itemInsertAnimation="Default"
+                itemDeleteAnimation="Default"></ListViewLinearLayout>
+            <ng-template tkListItemTemplate let-item="item">
+                <StackLayout orientation="vertical" class="list-view-item" (longPress)="onLongPress($event)" (tap)="onItemSelected($event)">
+                    <Label class="timeLabel" [text]="item.Start_Time"></Label>
+                    <Label class="nameLabel" [text]="item.Course_ID"></Label>
+                    <Label class="descriptionLabel" [text]="item.Course_Name"></Label>
+                    <Label class="roomLabel" [text]="item.Room"></Label>
+                </StackLayout>
+            </ng-template>
+        </RadListView>
+        <label *ngIf="this.is_sat" text="Saturday" class="header"></label>
+        <RadListView *ngIf="this.is_sat" #radlistview [items]="Saturday" class="list-view" selectionBehavior="Press , LongPress" (itemSelected)="onItemSelected($event)" multipleSelection="false">
+            <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal" itemInsertAnimation="Default"
+                itemDeleteAnimation="Default"></ListViewLinearLayout>
+            <ng-template tkListItemTemplate let-item="item">
+                <StackLayout orientation="vertical" class="list-view-item" (longPress)="onLongPress($event)" (tap)="onItemSelected($event)">
+                    <Label class="timeLabel" [text]="item.Start_Time"></Label>
+                    <Label class="nameLabel" [text]="item.Course_ID"></Label>
+                    <Label class="descriptionLabel" [text]="item.Course_Name"></Label>
+                    <Label class="roomLabel" [text]="item.Room"></Label>
+                </StackLayout>
+            </ng-template>
+        </RadListView>
+        <label *ngIf="this.is_sun" text="Sunday" class="header"></label>
+        <RadListView *ngIf="this.is_sun" #radlistview [items]="Sunday" class="list-view" selectionBehavior="Press , LongPress" (itemSelected)="onItemSelected($event)" multipleSelection="false">
+            <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal" itemInsertAnimation="Default"
+                itemDeleteAnimation="Default"></ListViewLinearLayout>
+            <ng-template tkListItemTemplate let-item="item">
+                <StackLayout orientation="vertical" class="list-view-item" (longPress)="onLongPress($event)" (tap)="onItemSelected($event)">
+                    <Label class="timeLabel" [text]="item.Start_Time"></Label>
+                    <Label class="nameLabel" [text]="item.Course_ID"></Label>
+                    <Label class="descriptionLabel" [text]="item.Course_Name"></Label>
+                    <Label class="roomLabel" [text]="item.Room"></Label>
+                </StackLayout>
+            </ng-template>
+        </RadListView>
+    </StackLayout>
+</ScrollLayout>
+
+<!--
+    Below the table shall show the datail of the selected class .
+    Then add one more button to view the note.....
+
+
+    Do it when free
+-->

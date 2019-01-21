@@ -1,0 +1,16 @@
+
+<StackLayout class="page">
+    <SearchBar hint="UECS 5263" [text]="searchPhrase" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)"
+        color="black" textFieldBackgroundColor="white" textFieldHintColor="black"></SearchBar>
+        <ListView class="list-group" [items]="List" (itemTap)="onItemTap($event)">
+                <ng-template let-item="item">
+                    <StackLayout orientation="horizontal" class="list-view-item">
+                        <Label class="timeLabel" [text]="item.Start_Time"></Label>
+                        <Label class="nameLabel" [text]="item.Course_ID"></Label>
+                        <Label class="nameLabel" [text]="item.Course_Type"></Label>
+                        <Label class="descriptionLabel" [text]="item.Description"></Label>
+                        <Label class="roomLabel" [text]="item.Venue"></Label>
+                    </StackLayout>
+                </ng-template>
+            </ListView>
+</StackLayout>

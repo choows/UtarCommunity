@@ -1,0 +1,31 @@
+<ActionBar class="action-bar" height="0">
+    <Label class="action-bar-title" text="Login"></Label>
+</ActionBar>
+<TabView androidTabsPosition="bottom">
+    <StackLayout class="page p-t-15"  *tabItem="{title:'Login'}">
+        <Button class="btn btn-outline" (tap)="onLoginWithSocialProviderButtonTap()" text="Log in with Social Provider"></Button>
+
+        <Label class="m-t-10 text-center" text="or"></Label>
+
+        <TextField class="m-t-10 m-b-10 m-l-15 m-r-15" hint="Email Address" keyboardType="email" autocorrect="false"
+            autocapitalization="none" [(ngModel)]="username"></TextField>
+        <TextField class="m-t-10 m-b-10 m-l-15 m-r-15" hint="Password" secure="true" autocorrect="false"
+            autocapitalization="none" [(ngModel)]="password"></TextField>
+
+        <Button class="btn btn-primary" text="SIGN IN" (tap)="onSigninButtonTap()"></Button>
+        <Label class="m-t-10 m-b-10 m-l-15 m-r-15" text="Forgot password?" (tap)="onForgotPasswordTap()"></Label>
+    </StackLayout>
+    <StackLayout class="page p-t-15" *tabItem="{title :'SignUp'}">
+        <Button class="btn btn-outline" (tap)="onSignupWithSocialProviderButtonTap()" text="Sign up with Social Provider"></Button>
+
+        <Label class="m-t-10 text-center" text="or"></Label>
+
+        <TextField class="m-t-10 m-b-10 m-l-15 m-r-15" hint="Email Address" keyboardType="email" autocorrect="false"
+            autocapitalization="none" [(ngModel)]="username"></TextField>
+        <TextField class="m-t-10 m-b-10 m-l-15 m-r-15" hint="Password" secure="true" autocorrect="false"
+            autocapitalization="none" [(ngModel)]="password"></TextField>
+
+        <Button class="btn btn-primary" text="SIGN UP" (tap)="onSignupButtonTap()"></Button>
+    </StackLayout>
+
+</TabView>

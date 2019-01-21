@@ -1,0 +1,21 @@
+<StackLayout class="Edit_Profile">
+    <image [src]="Profile_picture" sketch="full" (tap)="Change_Photo()" height="40%"></image>
+    <FlexboxLayout flexDirection="row">
+        <label text="UserName"></label>
+        <textview [(ngModel)]="UserName" width="50%" returnKeyType="done"></textview>
+    </FlexboxLayout>
+    <FlexboxLayout flexDirection="row">
+        <label text="Position"></label>
+        <Switch [checked]="checked" (checkedChange)="onChecked($event)"></Switch> 
+        <label [text]="Position"></label>
+    </FlexboxLayout>
+    <FlexboxLayout flexDirection="row">
+            <label text="Phone Number"></label>
+            <textview [(ngModel)]="Phone_num" width="50%" keyboardType="number" returnKeyType="done"></textview>
+        </FlexboxLayout>
+    <FlexboxLayout flexDirection="row">
+            <label text="About"></label>
+            <textview [(ngModel)]="About" width="50%" hint="Write about yourself..." returnKeyType="done"></textview>
+        </FlexboxLayout>
+    <Button text="Done & Save" (tap)="SaveContent()" width="100%"></Button>
+</StackLayout>

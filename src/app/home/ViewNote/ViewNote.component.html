@@ -1,0 +1,18 @@
+<ScrollView>
+    <StackLayout class="page">
+        <FlexboxLayout flexDirection="row">
+            <Button [text]="AddButtonText" width="50%" height="10%" (tap)="addNote()"></Button>
+            <Button text="CLOSE" width="50%" height="5%" (tap)="closeView()"></Button>
+        </FlexboxLayout>
+        <FlexboxLayout flexDirection="column" *ngIf="Adding">
+            <textView hint="Header" [(ngModel)]="Heading" width="100%"></textView>
+            <textview hint="Body" [(ngModel)]="Body" width="100%"></textview>
+        </FlexboxLayout>
+        <CardView *ngFor="let item of Notes" class="card" elevation="40" radius="10" ios:shadowRadius="3">
+            <StackLayout class="card-layout">
+                <Label class="h2" [text]="item.Heading"></Label>
+                <Label class="body" textWrap="true" [text]="item.Body"></Label>
+            </StackLayout>
+        </CardView>
+    </StackLayout>
+</ScrollView>

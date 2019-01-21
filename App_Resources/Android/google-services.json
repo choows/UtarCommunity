@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "265773899907",
+    "firebase_url": "https://utar-community.firebaseio.com",
+    "project_id": "utar-community",
+    "storage_bucket": "utar-community.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265773899907:android:0f11559ddcda3562",
+        "android_client_info": {
+          "package_name": "org.nativescript.UtarCommunity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265773899907-tdsp7d6sos98kgqtgk08pohdpg65j5qf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCILGF5i0QF_l32mFOol04FKat806pBIU8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

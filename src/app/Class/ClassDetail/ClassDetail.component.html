@@ -1,0 +1,51 @@
+<ActionBar class="action-bar">
+    <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onNavBack()"></NavigationButton>
+    <Label class="action-bar-title" [text]="Course_Name"></Label>
+</ActionBar>
+<TabView tabBackgroundColor="#2671f0" id="tabViewContainer" androidTabsPosition="bottom">
+    <StackLayout *tabItem="{title: 'Detail'}">
+        <FlexboxLayout flexDirection="row">
+            <label text="Course Id : "></label>
+            <label [text]="Course_ID"></label>
+        </FlexboxLayout>
+        <FlexboxLayout flexDirection="row">
+            <label text="L/P/T : "></label>
+            <label [text]="Course_Type"></label>
+        </FlexboxLayout>
+        <FlexboxLayout flexDirection="row">
+            <label text="Day : "></label>
+            <label [text]="Day"></label>
+        </FlexboxLayout>
+        <FlexboxLayout flexDirection="row">
+            <label text="Room : "></label>
+            <label [text]="Room"></label>
+        </FlexboxLayout>
+        <FlexboxLayout flexDirection="row">
+            <label text="Time : "></label>
+            <label [text]="Start_Time"></label>
+        </FlexboxLayout>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Chat'}">
+
+        <ScrollView #scrollview height="90%">
+            <ListView #ListView padding="5" #list separatorColor="#fff" [items]="Chats" class="list">
+                <ng-template let-item="item">
+                    <GridLayout columns="*" rows="auto" class="msg">
+                        <StackLayout orientation="horizontal">
+                            <Image class="authorimg" stretch="aspectFill" height="30"
+                                width="30" verticalAlignment="top" [src]="item.ProfileImage" col="1"></Image>
+                            <Label [text]="item.Message" class="msg_text" textWrap="true" verticalAlignment="top"></Label>
+                        </StackLayout>
+                    </GridLayout>
+                </ng-template>
+            </ListView>
+        </ScrollView>
+        <StackLayout height="10%">
+            <GridLayout columns="*,auto" style="padding: 10">
+                <TextField #textfield class="chatTextField" row="0" col="0" [(ngModel)]="message"></TextField>
+                <Button #btn class="chatBtn" row="0" col="1" text="send" (tap)="sendMessage()"></Button>
+            </GridLayout>
+        </StackLayout>
+
+    </StackLayout>
+</TabView>

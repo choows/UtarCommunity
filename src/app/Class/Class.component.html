@@ -1,0 +1,20 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
+    <Label class="action-bar-title" text="Class"></Label>
+</ActionBar>
+
+<StackLayout class="page">
+    <button text="Add Class" (tap)="onAddButtonTap()" width="100%" height="10%"></button>
+    <ListView class="list-group" [items]="List" (itemTap)="onItemTap($event)">
+        <ng-template let-item="item">
+            <StackLayout orientation="horizontal" class="list-view-item">
+                <Label class="timeLabel" [text]="item.Start_Time"></Label>
+                <Label class="nameLabel" [text]="item.Course_ID"></Label>
+                <Label class="nameLabel" [text]="item.Course_Type"></Label>
+                <Label class="descriptionLabel" [text]="item.Description"></Label>
+                <Label class="roomLabel" [text]="item.Venue"></Label>
+            </StackLayout>
+        </ng-template>
+    </ListView>
+</StackLayout>

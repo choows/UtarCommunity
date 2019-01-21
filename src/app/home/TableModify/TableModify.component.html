@@ -1,0 +1,43 @@
+<ActionBar class="action-bar">
+    <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onNavBack()"></NavigationButton>
+    <ActionItem ios.systemIcon="0" android.systemIcon="ic_input_add" (tap)="uploadRecord()"></ActionItem>
+    <Label class="action-bar-title" text="Table"></Label>
+</ActionBar>
+<GridLayout class="content">
+    <StackLayout class="sub-content">
+        <label class="title" text="Class"></label>
+        <FlexboxLayout flexDirection="row">
+            <label text="Course ID"></label>
+            <textfield hint="UECS 5231" [(ngModel)]="Course_ID"></textfield>
+        </FlexboxLayout>
+        <FlexboxLayout flexDirection="row">
+            <label text="Course Description"></label>
+            <textfield hint="Programming and Problem Solving" [(ngModel)]="Course_desc"></textfield>
+        </FlexboxLayout>
+        <label text="Class Detail"></label>
+        <FlexboxLayout flexDirection="row" width="100%">
+            <TimePicker width="55%" (loaded)="onPickerLoaded($event)" (timeChange)="onTimeChanged($event)" ></TimePicker>
+            <ListPicker width="15%" [items]="Class_type" (selectedIndexChange)="selectedClassType($event)"></ListPicker>
+            <ListPicker width="15%" [items]="Class_num" (selectedIndexChange)="selectedClass_Num($event)"></ListPicker>
+            <ListPicker width="15%" [items]="Class_day" (selectedIndexChange)="selectedClass_Day($event)"></ListPicker>
+        </FlexboxLayout>
+        <FlexboxLayout flexDirection="row">
+            <label text="Venue"></label>
+            <textfield hint="Venue" [(ngModel)]="Venue"></textfield>
+        </FlexboxLayout>
+        <button text="Add Class" (tap)="AddClass()"></button>
+        <ListView class="list-group" [items]="class_picked" (itemTap)="onItemTap($event)">
+                <ng-template let-item="item">
+                    <StackLayout orientation="horizontal" class="list-view-item">
+                        <Label class="timeLabel" [text]="item.Start_Time"></Label>
+                        <Label class="nameLabel" [text]="item.Course_ID"></Label>
+                        <Label class="descriptionLabel" [text]="item.Course_Name"></Label>
+                        <Label class="roomLabel" [text]="item.Room"></Label>
+                    </StackLayout>
+                </ng-template>
+            </ListView>
+    </StackLayout>
+</GridLayout>
+
+
+<!-- PLEASE LOOK FOR THE *NGFOR DIRECTIVE FOR THE DISPPLAY ADDED FORM-->
